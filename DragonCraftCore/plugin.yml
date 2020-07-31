@@ -1,0 +1,39 @@
+main: pl.dcrft.Main
+name: DragonCraftCore
+version: 3.0
+author: NickNickerYT
+description: DragonCraftCore
+commands:
+  pomoc:
+    description: Wyświetl pomoc.
+    usage: /pomoc
+  dcc:
+    description: Komenda główna DragonCraftCore.
+    usage: /dcc [<reload>]
+  cc:
+    description: Czyszczenie czatu.
+    usage: /cc
+  losuj:
+    description: Losowanie kolorków.
+    usage: /losuj
+  restart60:
+    description: Restartuje serwer za minutę.
+    usage: /restart60
+  reload60:
+    description: Przeładowuje serwer za minutę.
+    usage: /reload60
+  stop60:
+    description: Zatrzumuje serwer za minutę.
+    usage: /stop60
+  przerwa60:
+    description: Rozpoczyna przerwę techniczną za minutę.
+    usage: /przerwa60
+  sklepbroadcast:
+    description: Ogłasza zakup ze sklepu.
+    usage: /sklepbroadcast [gracz] [tekst]
+  sklepbroadcastdonate:
+    description: Ogłasza dotację ze sklepu.
+    usage: /sklepbroadcastdonate [gracz] [tekst]
+  dcccast:
+    description: Czyszczenie czatu.
+    usage: /cc
