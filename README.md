@@ -103,4 +103,4 @@ wiadomosci:
 • /stop60, /reload60, /restart60, /przerwa60 (r.adm) - odpowiednio rozpoczyna zatrzymywanie serwera/przeładowanie plików serwera/restart serwera/ przerwę techniczną (biała lista + wyrzucenie graczy) w ciągu 1 minuty\
 • /sklepbroadcast <gracz> <przedmiot> (r.adm) - informacja o zakupie ze sklepu, przydatne do ItemShopów\
 • /sklepbroadcastdonate <gracz> <tekst> (r.adm) - informacja o dotacji ze sklepu, przydatne do ItemShopów\
-• /dcccast <tekst> (dcc.adm) - dowolna informacja na czacie serwera\
+• /dcccast <tekst> (dcc.adm) - dowolna informacja na czacie serwera
