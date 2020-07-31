@@ -13,14 +13,12 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-//import java.util.concurrent.TimeUnit;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import pl.dcrft.wyjscie.Output;
-//import pl.dcrft.R60;;
 
 public class Main extends JavaPlugin implements Listener{
 	 
@@ -37,8 +35,8 @@ public class Main extends JavaPlugin implements Listener{
     }
     public void CheckConfig() {
 		 
-        if(getConfig().get("pomoc") == null){ //if the setting has been deleted it will be null
-            getConfig().set("pomoc", "brak"); //reset the setting
+        if(getConfig().get("pomoc") == null){ 
+            getConfig().set("pomoc", "brak"); 
             saveConfig();
             reloadConfig();
  
@@ -46,7 +44,7 @@ public class Main extends JavaPlugin implements Listener{
     }
     public void onEnable() {
          Bukkit.getPluginManager().registerEvents(this, this);   
-    	 File file = new File(getDataFolder() + File.separator + "config.yml"); //This will get the config file
+    	 File file = new File(getDataFolder() + File.separator + "config.yml"); 
        	 
        	 
          if (!file.exists()){
@@ -71,10 +69,7 @@ public class Main extends JavaPlugin implements Listener{
 		        
             }
         }, 20, Integer.parseInt(getConfig().getString("cooldown")) * 20);
-        //this.getServer().getPluginManager().registerEvents(new Handler(), this);
-      //PluginManager pm = Bukkit.getPluginManager();
 		 
-		//pm.registerEvents(new PlayerInteract(), this);
     }
     
     public void onDisable() {
