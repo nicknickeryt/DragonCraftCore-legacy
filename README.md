@@ -3,13 +3,13 @@ Plugin na podstawowe elementy serwera dla DragonCraft (DCRFT.PL)
 
 ## Funkcje
 
-• /pomoc dla graczy,
-• cenzura na czacie,
-• wiadomości cykliczne,
-• wiadomości o zakupie ze sklepu z dźwiękiem,
-• możliwość rozpoczęcia restartu/zatrzymiania/przeładowania/przerwy na serwerze w ciągu minuty,
-• możliwość ogłoszenia wiadomości na czacie serwera,
-• losowanie kolorów lub czegokolwiek innego,
+• /pomoc dla graczy,\
+• cenzura na czacie,\
+• wiadomości cykliczne,\
+• wiadomości o zakupie ze sklepu z dźwiękiem,\
+• możliwość rozpoczęcia restartu/zatrzymiania/przeładowania/przerwy na serwerze w ciągu minuty,\
+• możliwość ogłoszenia wiadomości na czacie serwera,\
+• losowanie kolorów lub czegokolwiek innego,\
 • czyszczenie czatu.
 
 ## Konfiguracja
