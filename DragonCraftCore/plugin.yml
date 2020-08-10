@@ -37,3 +37,15 @@ commands:
   dcccast:
     description: Czyszczenie czatu.
     usage: /cc
+  vip:
+    description: Alias do /warp vip lub pokazanie możliwości VIPa w zależności od rangi.
+    usage: /vip
+  svip:
+    description: Alias do /warp svip lub pokazanie możliwości SVIPa w zależności od rangi.
+    usage: /svip
+  mvip:
+    description: Alias do /warp mvip lub pokazanie możliwości MVIPa w zależności od rangi.
+    usage: /mvip
+  evip:
+    description: Alias do /warp evip lub pokazanie możliwości EVIPa w zależności od rangi.
+    usage: /evip

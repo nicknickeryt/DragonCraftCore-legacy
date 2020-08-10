@@ -10,10 +10,54 @@
 
 #Pomoc
 
+vip:
+-  "&e&lDragon&6&lCraft &e» &bVIP"
+-  "&e» &3Ranga &bVIP&3 jest na zawsze"
+-  "&e» &3Ranga &bVIP &3daje:"
+-  "&e» &3rezerwację slota"
+-  "&e» &b10 &3Kuboid"
+-  "&e» &b5x&3 /sethome"
+-  "&e» &3Dostęp do strefy &bVIP"
+-  "&e» &3/kit &bVIP"
+-  "&e» &3Zakup rangę już dziś na &bDCRFT.PL"
+svip:
+-  "&e&lDragon&6&lCraft &e» &5SVIP"
+-  "&e» &3Ranga &5SVIP&3 jest na zawsze"
+-  "&e» &3Ranga &5SVIP &3daje wszystko to co &bVIP &3oraz:"
+-  "&e» &b20 &3Kuboid"
+-  "&e» &b10x&3 /sethome"
+-  "&e» &3Dostęp do strefy &bSVIP"
+-  "&e» &3/kit &bSVIP"
+-  "&e» &3/workbench"
+-  "&e» &3/enderchest"
+-  "&e» &3Zakup rangę już dziś na &bDCRFT.PL"
+mvip:
+-  "&e&lDragon&6&lCraft &e» &9MVIP"
+-  "&e» &3Ranga &9MVIP&3 jest na zawsze"
+-  "&e» &3Ranga &9MVIP &3daje wszystko to co &5SVIP &3oraz:"
+-  "&e» &b30 &3Kuboid"
+-  "&e» &b15x&3 /sethome"
+-  "&e» &3Dostęp do strefy &bMVIP"
+-  "&e» &3/kit &bMVIP"
+-  "&e» &3pisanie kolorami na tabliczkach"
+-  "&e» &3brak cooldownu na teleportację"
+-  "&e» &3Zakup rangę już dziś na &bDCRFT.PL"
+evip:
+-  "&e&lDragon&6&lCraft &e» &6EVIP"
+-  "&e» &3Ranga &6EVIP&3 jest na zawsze"
+-  "&e» &3Ranga &6EVIP &3daje wszystko to co &9MVIP &3oraz:"
+-  "&e» &b40 &3Kuboid"
+-  "&e» &b20x&3 /sethome"
+-  "&e» &3Dostęp do strefy &bEVIP"
+-  "&e» &3/kit &bEVIP"
+-  "&e» &3Zakup rangę już dziś na &bDCRFT.PL"
+
 pomoc:
 - '&e » &3Treść wiadomości pomocy'
 
 przedrostek: '&e&lDragon&6&lCraft&e » &aPomoc'
+
+czerwonyczat: W?a?ciciel
 
 #Cenzura
 

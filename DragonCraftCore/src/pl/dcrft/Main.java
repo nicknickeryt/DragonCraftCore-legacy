@@ -13,14 +13,12 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-//import java.util.concurrent.TimeUnit;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import pl.dcrft.wyjscie.Output;
-//import pl.dcrft.R60;;
 
 public class Main extends JavaPlugin implements Listener{
 	 
@@ -37,8 +35,8 @@ public class Main extends JavaPlugin implements Listener{
     }
     public void CheckConfig() {
 		 
-        if(getConfig().get("pomoc") == null){ //if the setting has been deleted it will be null
-            getConfig().set("pomoc", "brak"); //reset the setting
+        if(getConfig().get("pomoc") == null){ 
+            getConfig().set("pomoc", "brak"); 
             saveConfig();
             reloadConfig();
  
@@ -46,7 +44,7 @@ public class Main extends JavaPlugin implements Listener{
     }
     public void onEnable() {
          Bukkit.getPluginManager().registerEvents(this, this);   
-    	 File file = new File(getDataFolder() + File.separator + "config.yml"); //This will get the config file
+    	 File file = new File(getDataFolder() + File.separator + "config.yml"); 
        	 
        	 
          if (!file.exists()){
@@ -71,10 +69,6 @@ public class Main extends JavaPlugin implements Listener{
 		        
             }
         }, 20, Integer.parseInt(getConfig().getString("cooldown")) * 20);
-        //this.getServer().getPluginManager().registerEvents(new Handler(), this);
-      //PluginManager pm = Bukkit.getPluginManager();
-		 
-		//pm.registerEvents(new PlayerInteract(), this);
     }
     
     public void onDisable() {
@@ -82,13 +76,67 @@ public class Main extends JavaPlugin implements Listener{
     }
     
     public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
-    	if (cmd.getName().equalsIgnoreCase("pomoc")) {
-    			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString("przedrostek")));
-            	for(String msg : getConfig().getStringList("pomoc")) {
-                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
-                }
-            	return true;
-    	}
+    			if (cmd.getName().equalsIgnoreCase("pomoc")) {
+    				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString("przedrostek")));
+    				for(String msg : getConfig().getStringList("pomoc")) {
+    					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+    				}
+    				return true;
+    			}
+    			
+    			if (cmd.getName().equalsIgnoreCase("vip")) {
+    				if (sender.hasPermission("essentials.kits.vip")) {
+    					Player p = (Player)sender;
+    					p.chat("/warp vip");
+    					return true;
+    				}
+    				else {
+                	for(String msg : getConfig().getStringList("vip")) {
+                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+                	}
+                        return true;
+                    }
+        	}
+    			if (cmd.getName().equalsIgnoreCase("svip")) {
+    				if (sender.hasPermission("essentials.kits.svip")) {
+    					Player p = (Player)sender;
+    					p.chat("/warp svip");
+    					return true;
+    				}
+    				else {
+                	for(String msg : getConfig().getStringList("svip")) {
+                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+                	}
+                        return true;
+    			}
+        	}
+    			if (cmd.getName().equalsIgnoreCase("mvip")) {
+    				if (sender.hasPermission("essentials.kits.mvip")) {
+    					Player p = (Player)sender;
+    					p.chat("/warp mvip");
+    					return true;
+    				}
+    				else {
+                	for(String msg : getConfig().getStringList("mvip")) {
+                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+                	}
+                        return true;
+                    }
+
+        	}
+    			if (cmd.getName().equalsIgnoreCase("evip")) {
+    				if (sender.hasPermission("essentials.kits.evip")) {
+    					Player p = (Player)sender;
+    					p.chat("/warp evip");
+    					return true;
+    				}
+    				else {
+                	for(String msg : getConfig().getStringList("evip")) {
+                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+                	}
+                        return true;
+                    }
+        	}
             	if (cmd.getName().equalsIgnoreCase("cc")){
             		if (sender.hasPermission("cc.adm")) {
             		for(int i = 0; i < 100; ++i) {
@@ -149,6 +197,7 @@ public class Main extends JavaPlugin implements Listener{
         		if (sender.hasPermission("dcc.adm")) {
                 	reloadConfig();
                 	sender.sendMessage("§e§lDragon§6§lCraft §e» §aPrzeładowano plik konfiguracyjny §e§lDragon§6§lCraft§a§lCore§a.");
+                	this.filtry = (Map<String, Object>)this.getConfig().getConfigurationSection("filtry").getValues(true);
                 	return true;
         		}
                 else {
@@ -654,11 +703,20 @@ public class Main extends JavaPlugin implements Listener{
     	}
 			return false;
     }
+    public static boolean isPlayerInGroup(Player player, String group) {
+        return player.hasPermission("group." + group);
+    }
     
-    
+
     @EventHandler
     public void onPlayerChat(final AsyncPlayerChatEvent w) {
-        String message = w.getMessage();
+    	Player p = w.getPlayer();
+    	boolean grupa = isPlayerInGroup(p, getConfig().getString("czerwonyczat"));
+    	if (grupa == true) {
+    		String wiadomosc = w.getMessage();
+    		w.setMessage("§c" + wiadomosc);
+    	}
+        String message = w.getMessage().toLowerCase();
         for (final Map.Entry<String, Object> filter : this.filtry.entrySet()) {
             message = message.replaceAll(filter.getKey(), filter.getValue().toString());
         }
