@@ -85,11 +85,12 @@ public class Main extends JavaPlugin implements Listener{
     			}
     			
     			if (cmd.getName().equalsIgnoreCase("vip")) {
-    				if (sender.hasPermission("essentials.kits.vip")) {
-    					Player p = (Player)sender;
-    					p.chat("/warp vip");
+    				Player p = (Player)sender;
+    		    	boolean grupa = isPlayerInGroup(p, "vip");
+    		    	if (grupa == true) {
+    		    		p.chat("/warp vip");
     					return true;
-    				}
+    		    	}
     				else {
                 	for(String msg : getConfig().getStringList("vip")) {
                         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
@@ -98,11 +99,12 @@ public class Main extends JavaPlugin implements Listener{
                     }
         	}
     			if (cmd.getName().equalsIgnoreCase("svip")) {
-    				if (sender.hasPermission("essentials.kits.svip")) {
-    					Player p = (Player)sender;
-    					p.chat("/warp svip");
+    				Player p = (Player)sender;
+    				boolean grupa = isPlayerInGroup(p, "svip");
+    		    	if (grupa == true) {
+    		    		p.chat("/warp svip");
     					return true;
-    				}
+    		    	}
     				else {
                 	for(String msg : getConfig().getStringList("svip")) {
                         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
@@ -111,11 +113,12 @@ public class Main extends JavaPlugin implements Listener{
     			}
         	}
     			if (cmd.getName().equalsIgnoreCase("mvip")) {
-    				if (sender.hasPermission("essentials.kits.mvip")) {
-    					Player p = (Player)sender;
-    					p.chat("/warp mvip");
+    				Player p = (Player)sender;
+    				boolean grupa = isPlayerInGroup(p, "mvip");
+    		    	if (grupa == true) {
+    		    		p.chat("/warp mvip");
     					return true;
-    				}
+    		    	}
     				else {
                 	for(String msg : getConfig().getStringList("mvip")) {
                         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
@@ -125,11 +128,12 @@ public class Main extends JavaPlugin implements Listener{
 
         	}
     			if (cmd.getName().equalsIgnoreCase("evip")) {
-    				if (sender.hasPermission("essentials.kits.evip")) {
-    					Player p = (Player)sender;
-    					p.chat("/warp evip");
+    				Player p = (Player)sender;
+    				boolean grupa = isPlayerInGroup(p, "evip");
+    		    	if (grupa == true) {
+    		    		p.chat("/warp evip");
     					return true;
-    				}
+    		    	}
     				else {
                 	for(String msg : getConfig().getStringList("evip")) {
                         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
@@ -716,11 +720,19 @@ public class Main extends JavaPlugin implements Listener{
     		String wiadomosc = w.getMessage();
     		w.setMessage("§c" + wiadomosc);
     	}
-        String message = w.getMessage().toLowerCase();
+        String message = w.getMessage();
+        
         for (final Map.Entry<String, Object> filter : this.filtry.entrySet()) {
-            message = message.replaceAll(filter.getKey(), filter.getValue().toString());
+        	//String wiad = message.toLowerCase();
+        	message = message.toLowerCase().replaceAll(filter.getKey().toLowerCase(), filter.getValue().toString());
+        	
         }
-        w.setMessage(message);
+        if(message.equalsIgnoreCase(w.getMessage())) {
+        	
+        }
+        else {
+        	w.setMessage(message);
+        }
         if (w.getMessage().length() == 0) {
             w.setCancelled(true);
         }
